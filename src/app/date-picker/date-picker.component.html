@@ -1,0 +1,27 @@
+<div class="dim" *ngIf="caller" (click)="caller = undefined">
+  <div class="box" [ngStyle]="getBoxStyle()" (click)="$event.stopPropagation()">
+    <div>
+      <div class="date">{{date.toLocaleString('default', { month: 'long' })}} {{date.getFullYear()}}</div>
+
+      <div class="arrows">
+        <div class="button-circle" (click)="date.setMonth(date.getMonth() - 1)"><</div>
+        <div class="button-circle" (click)="date.setMonth(date.getMonth() + 1)">></div>
+      </div>
+    </div>
+
+    <div class="calendar">
+      <div class="days">
+        <div *ngFor="let day of ['M', 'T', 'W', 'T', 'F', 'S', 'S']">{{day}}</div>
+      </div>
+
+      <div class="dates">
+        <div *ngFor="let value of getValues()"><div class="button-circle" [ngClass]="{'date-different-month': value.isDiffMonth, 'date-today': value.isToday}" (click)="select(value.date)">{{value.date.getDate()}}</div></div>
+      </div>
+
+    </div>
+
+    <app-time-picker style="position: absolute; bottom: 0; left: 40%"></app-time-picker>
+
+  </div>
+
+</div>

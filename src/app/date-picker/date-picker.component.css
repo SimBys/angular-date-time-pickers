@@ -1,0 +1,67 @@
+.box {
+  position: absolute;
+  border: 1px solid white;
+  width: 300px;
+  display: flex;
+  flex-flow: column;
+  user-select: none;
+  background-color: #222;
+  z-index: 1;
+}
+
+.date {
+  display: inline;
+  margin-left: 10%;
+}
+
+.arrows{
+  float: right;
+  margin: 2%;
+  display: flex;
+  gap: 5px;
+}
+
+.calendar {
+  height: 100%;
+}
+
+.calendar .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar .days div {
+  text-align: center;
+}
+
+.calendar .dates {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar .dates div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar .dates div div {
+  width: 25px;
+  height: 25px;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.date-different-month {
+  --c: #696969;
+  color: var(--c);
+  border-color: var(--c) !important;
+}
+
+.date-today {
+  --c: #79ff0f;
+  color: var(--c);
+  /*background-color: #333333;*/
+  border-color: var(--c) !important;
+}

@@ -1,0 +1,17 @@
+<!--Base-->
+<div #base class="base" [ngStyle]="{'z-index': isOpen ? 2 : 0}" (click)="open()">
+  <input #inputHours (mousedown)="inputHoursMouseDown($event)" (keyup.control.a)="selectAll($event)" (keydown)="inputHoursKeyDown($event)" [value]="selectedHour == null ? 'NA' : selectedHour">
+  <div>:</div>
+  <input #inputMinutes (mousedown)="inputMinutesMouseDown($event)" (keydown)="inputMinutesKeyDown($event)" [value]="selectedMinute == null ? 'NA' : selectedMinute.toLocaleString('en-US', {minimumIntegerDigits: 2})">
+</div>
+<!--Popup-->
+<div class="dim" *ngIf="isOpen" (click)="isOpen = false">
+  <div class="box" [ngStyle]="getBoxStyle()" (click)="$event.stopPropagation()">
+    <div class="hours" style="flex: 1">
+      <div *ngFor="let hour of hours" (click)="selectHour(hour)" [ngClass]="{'selected': hour === selectedHour}">{{hour}}</div>
+    </div>
+    <div class="minutes" style="flex: 1;">
+      <div *ngFor="let minute of minutes" (click)="selectMinute(minute)" [ngClass]="{'selected': minute === selectedMinute}">{{minute.toLocaleString('en-US', {minimumIntegerDigits: 2})}}</div>
+    </div>
+  </div>
+</div>

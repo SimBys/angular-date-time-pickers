@@ -1,0 +1,50 @@
+body::-webkit-scrollbar {
+  width: 0.25em;
+  background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #555555;
+}
+
+:root {
+  --border: 1px solid white;
+
+}
+
+body {
+  margin: 0;
+  background-color: #111;
+  color: white;
+  font-family: "Arial Rounded MT Bold", serif;
+  /*font-weight: bolder;*/
+}
+
+.button-circle {
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.button-circle:hover {
+  background-color: #555;
+}
+
+.dim {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, .2);
+}
