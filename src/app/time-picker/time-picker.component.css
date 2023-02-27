@@ -33,29 +33,60 @@ input {
 }
 
 /*Popup*/
-.box {
+.select {
   position: absolute;
-  border: 1px solid white;
   width: 100px;
-  display: flex;
-  background-color: #222;
+  max-height: 300px;
+  border: 1px solid orange;
+  /*background-color: #222;*/
   z-index: 2;
   text-align: center;
-  max-height: 30%;
-  font-size: 2rem;
+  /*max-height: 30%;*/
+  font-size: 1rem;
+
   user-select: none;
   cursor: pointer;
+  /*overflow: auto;*/
+  /*Grid with 2 columns*/
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
-.box > div {
+
+
+/*.select > div {*/
+/*  display: flex;*/
+/*  flex: 1;*/
+/*  padding: .5rem;*/
+/*  border: 1px solid yellow;*/
+/*  flex-direction: column;*/
+/*}*/
+.hour {
+  /*First column in grid*/
+  grid-column: 1;
+}
+
+.minute {
+  /*Second column in grid*/
+  grid-column: 2;
+}
+
+.hours {
+  border: 1px solid red;
+  flex: 1;
+  height: 100%;
   overflow: auto;
 }
 
 .hours div {
   border: var(--border);
+  flex: 1;
+  height: 300px;
+  overflow: auto;
 }
 
 .minutes div {
+  flex: 1;
   border: var(--border);
 }
 

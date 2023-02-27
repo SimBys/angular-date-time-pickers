@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, ViewChild} from '@angular/core';
 
 type CB = (selectedHour: number, selectedMinute: number) => void
 
@@ -41,8 +41,9 @@ export class TimePickerComponent {
   }
 
   getBoxStyle() {
-    // const caller = this.base.nativeElement
-    const caller = document.getElementById('test-id')!
+    const caller = this.base.nativeElement
+    // console.log(this.base)
+    // const caller = document.getElementById('test-id')!
     // this.base.nativeElement.left = '100px'
     return {
       left: caller.offsetLeft + 'px',

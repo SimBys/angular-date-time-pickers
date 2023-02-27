@@ -6,12 +6,13 @@
 </div>
 <!--Popup-->
 <div class="dim" *ngIf="isOpen" (click)="isOpen = false">
-  <div class="box" [ngStyle]="getBoxStyle()" (click)="$event.stopPropagation()">
-    <div class="hours" style="flex: 1">
-      <div *ngFor="let hour of hours" (click)="selectHour(hour)" [ngClass]="{'selected': hour === selectedHour}">{{hour}}</div>
-    </div>
-    <div class="minutes" style="flex: 1;">
-      <div *ngFor="let minute of minutes" (click)="selectMinute(minute)" [ngClass]="{'selected': minute === selectedMinute}">{{minute.toLocaleString('en-US', {minimumIntegerDigits: 2})}}</div>
-    </div>
-  </div>
+</div>
+
+<div class="select" *ngIf="isOpen" [ngStyle]="getBoxStyle()" (click)="$event.stopPropagation()">
+  <div class="hour" *ngFor="let hour of hours" (click)="selectHour(hour)" [ngClass]="{'selected': hour === selectedHour}">{{hour}}</div>
+  <div class="minute" *ngFor="let minute of minutes" (click)="selectMinute(minute)" [ngClass]="{'selected': minute === selectedMinute}">{{minute.toLocaleString('en-US', {minimumIntegerDigits: 2})}}</div>
+<!--  <div class="hours">-->
+<!--  </div>-->
+<!--  <div class="minutes">-->
+<!--  </div>-->
 </div>
