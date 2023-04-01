@@ -35,8 +35,11 @@ export class TimePickerComponent {
   }
 
   close() {
+    this.selectedHour ??= 0
+    this.selectedMinute ??= 0
     this.isOpen = false
-    this.onSelectCB?.(this.selectedHour!, this.selectedMinute!)
+
+    this.onSelectCB?.(this.selectedHour, this.selectedMinute)
     this.inputMinutes.nativeElement.blur()
   }
 
@@ -52,6 +55,9 @@ export class TimePickerComponent {
   }
 
   selectHour(value: number) {
+    if (this.selectedHour === value)
+      this.close()
+
     this.selectedHour = value
     this.hourChanged = true
     if (this.minuteChanged)
@@ -59,6 +65,9 @@ export class TimePickerComponent {
   }
 
   selectMinute(value: number) {
+    if (this.selectedMinute === value)
+      this.close()
+
     this.selectedMinute = value
     this.minuteChanged = true
     if (this.hourChanged)
